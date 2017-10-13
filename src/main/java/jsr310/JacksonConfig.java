@@ -18,6 +18,7 @@ public class JacksonConfig {
                     .findModulesViaServiceLoader(true)//
                     .indentOutput(true)//
                     .modules(new JavaTimeModule(), new Jdk8Module())//
+                    // .featuresToDisable(DeserializationFeature.ADJUST_DATES_TO_CONTEXT_TIME_ZONE)//
                     .featuresToDisable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);//
         };
     }

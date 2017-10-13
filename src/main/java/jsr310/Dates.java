@@ -9,16 +9,14 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.Data;
+import lombok.Value;
 
+@Value
+@Data
 @Builder
-@Setter
-@Getter
-@ToString
 @JsonInclude(Include.NON_EMPTY)
-public class DateResponse implements Serializable {
+public class Dates implements Serializable {
 
     private static final long serialVersionUID = 3191068752500323145L;
 
