@@ -1,33 +1,22 @@
-buildscript {
-	repositories {
-		mavenCentral()
-	}
-	dependencies {
-		classpath 'org.springframework.boot:spring-boot-gradle-plugin:1.5.7.RELEASE'
-	}
+plugins {
+	id "java"
+	id "idea"
+	id "org.springframework.boot" version "1.5.7.RELEASE"
 }
-
-apply plugin: 'eclipse'
-apply plugin: 'java'
-apply plugin: 'org.springframework.boot'
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
-
-jar {
-	baseName = 'spring-boot-jsr310'
-	version = '0.0.1-SNAPSHOT'
-}
 
 repositories {
 	mavenCentral()
 }
 
 dependencies {
-	compile 'org.springframework.boot:spring-boot-starter-web'
-	compile 'com.paypal.springboot:resteasy-spring-boot-starter:2.3.3-RELEASE'
-	compile 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310'
-	compile 'com.fasterxml.jackson.datatype:jackson-datatype-jdk8'
-	compileOnly 'org.projectlombok:lombok:1.16.18'
-	testCompile 'org.springframework.boot:spring-boot-starter-test'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'com.paypal.springboot:resteasy-spring-boot-starter:2.3.3-RELEASE'
+	implementation 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310'
+	implementation 'com.fasterxml.jackson.datatype:jackson-datatype-jdk8'
+	compileOnly 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
