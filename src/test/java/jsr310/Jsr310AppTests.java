@@ -7,22 +7,19 @@ import java.time.LocalDateTime;
 import java.time.OffsetDateTime;
 import java.time.ZoneOffset;
 
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.ActiveProfiles;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.util.StringUtils;
 
 import com.fasterxml.jackson.databind.JsonNode;
 
-@RunWith(SpringJUnit4ClassRunner.class)
-@SpringBootTest(classes = Jsr310App.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @ActiveProfiles("test")
+@SpringBootTest(classes = Jsr310App.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class Jsr310AppTests {
 
     @Autowired
@@ -65,7 +62,7 @@ public class Jsr310AppTests {
                 .isTrue();
         assertThat(
                 StringUtils.startsWithIgnoreCase(jsonNode.get("localDateTime").textValue(), LocalDate.now().toString()))
-                        .isTrue();
+                .isTrue();
         assertThat(StringUtils.startsWithIgnoreCase(jsonNode.get("offsetDateTime").textValue(),
                 LocalDate.now().toString())).isTrue();
         assertThat(httpStatus).isEqualTo(HttpStatus.OK);
